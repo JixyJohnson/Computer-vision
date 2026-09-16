@@ -228,7 +228,7 @@ Make sure the input image used by each program is available in the correct folde
 * Affine transformations
 
 
-### Single Layer Perceptron for Image Classification
+### 8. Single Layer Perceptron for Image Classification
 
 ## 📌 Overview
 
