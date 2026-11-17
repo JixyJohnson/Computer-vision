@@ -1,0 +1,2 @@
+image,object,confidence,width_pixels,height_pixels,bounding_box_area_pixels,width_cm_if_calibrated,height_cm_if_calibrated
+test.jpg,cat,0.9166,2374.05,3141.6,7458296.36,,
