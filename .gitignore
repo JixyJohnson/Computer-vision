@@ -1,0 +1,7 @@
+
+# Large CIFAR-10 dataset archive
+Program2_CNN_Comparison/dataset/cifar-10-python.tar.gz
+
+# Exclude CIFAR-10 dataset archives
+Program1_Basic_CNN/dataset/cifar-10-python.tar.gz
+Program2_CNN_Comparison/dataset/cifar-10-python.tar.gz
