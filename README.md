@@ -1727,3 +1727,188 @@ The terminal displays:
 This project demonstrates the implementation and comparison of a normal CNN and a CNN integrated with CBAM attention for fruit image classification.
 
 By comparing their test accuracy, loss, and training time, the experiment evaluates the effect of channel and spatial attention on CNN-based fruit quality classification.
+
+# Computer Vision Projects – Object Detection and Image Segmentation
+
+## Project Overview
+
+This repository contains three Python programs developed using Deep Learning and Computer Vision techniques. The programs demonstrate object detection, instance segmentation, semantic segmentation, panoptic-style segmentation, object-size measurement, and performance evaluation of different object detection models.
+
+The project uses pretrained deep learning models from Ultralytics YOLO and PyTorch Torchvision.
+
+## Programs Included
+
+### Program 1: YOLO26 Object Detection, Instance Segmentation and Object-Size Measurement
+
+**Objective:**  
+To detect objects in images, perform instance segmentation, and measure the dimensions and area of detected objects.
+
+**Techniques Used:**
+- YOLO26 for object detection.
+- YOLO26-seg for instance segmentation.
+- Bounding-box width, height, and area calculation.
+- Pixel-to-centimetre conversion using camera calibration.
+
+**Input:**
+- Place JPG or PNG images inside the `input_images/` folder.
+
+**Output:**
+- `output/detection/` – Images with detected bounding boxes.
+- `output/segmentation/` – Images with segmentation results.
+- `output/object_measurements.csv` – Object width, height, area, and confidence values.
+
+**Execution:**
+```bash
+python program1.py
+```
+
+### Program 2: Comparison of YOLO26, Faster R-CNN and SSD
+
+**Objective:**  
+To compare the performance of three object detection models using a labelled image dataset.
+
+**Models Used:**
+- YOLO26
+- Faster R-CNN
+- SSD (Single Shot Detector)
+
+**Evaluation Metrics:**
+- Mean Matched Bounding-Box IoU
+- Bounding-Box Dice Coefficient
+- mAP@0.50
+- mAP@0.50:0.95
+- Average Inference Time
+
+**Dataset Structure:**
+```text
+dataset/
+    images/
+        image1.jpg
+        image2.jpg
+    labels/
+        image1.txt
+        image2.txt
+    classes.txt
+```
+
+The annotation files use YOLO format:
+```text
+class_id x_center y_center width height
+```
+
+All coordinates and dimensions must be normalized between 0 and 1.
+
+**Output:**
+- Model performance comparison in the terminal.
+- `model_comparison_metrics.csv` – Evaluation results for all three models.
+
+**Execution:**
+```bash
+python program2.py
+```
+
+**Note:** Bounding-box Dice is calculated using rectangle regions and is not the same as pixel-level segmentation-mask Dice.
+
+### Program 3: Semantic, Instance and Panoptic-Style Segmentation
+
+**Objective:**  
+To perform semantic segmentation and instance segmentation on an input image and combine their outputs into a panoptic-style visualization.
+
+**Models Used:**
+- DeepLabV3 with ResNet50 for semantic segmentation.
+- Mask R-CNN with ResNet50 FPN for instance segmentation.
+
+**Techniques Used:**
+- Pixel-level semantic classification.
+- Individual object instance detection.
+- Instance mask generation.
+- Combined panoptic-style map creation.
+
+**Input:**
+- An image named `test.jpg` in the program's working directory.
+
+**Output:**
+- Original image.
+- Semantic segmentation map.
+- Combined panoptic-style segmentation map.
+- `panoptic_output.png` – Saved visualization.
+
+**Execution:**
+```bash
+python program3.py
+```
+
+**Note:** The combined output is a panoptic-style visualization created by overlaying instance IDs on the semantic map. It is not a complete standards-compliant panoptic segmentation implementation.
+
+## Technologies and Libraries Used
+
+- Python
+- OpenCV (optional for additional image processing)
+- Ultralytics
+- PyTorch
+- Torchvision
+- TorchMetrics
+- NumPy
+- Matplotlib
+- Pillow (PIL)
+
+## Installation and Requirements
+
+### 1. Install Python
+
+Install Python 3.10 or a compatible version.
+
+### 2. Install Required Libraries
+
+Run the following command in the terminal:
+
+```bash
+pip install ultralytics torch torchvision torchmetrics pycocotools numpy matplotlib pillow
+```
+
+For GPU acceleration, install the appropriate PyTorch version compatible with your CUDA setup.
+
+### 3. Clone the Repository
+
+```bash
+git clone https://github.com/JixyJohnson/Computer-vision.git
+```
+
+### 4. Navigate to the Project Folder
+
+```bash
+cd Computer-vision
+```
+
+### 5. Run the Programs
+
+Execute each program separately using Python:
+
+```bash
+python program1.py
+python program2.py
+python program3.py
+```
+
+Replace the filenames with the actual Python filenames in your repository.
+
+## Important Notes
+
+- The first execution may download pretrained model weights automatically.
+- Program 1 requires images inside the `input_images/` folder.
+- Program 2 requires images, YOLO-format annotations, and a `classes.txt` file.
+- Program 3 requires an image named `test.jpg`.
+- All three programs can use CPU, but GPU execution is recommended for faster processing.
+- Physical object dimensions require appropriate camera calibration or depth information.
+
+## Applications
+
+- Automated object detection.
+- Image analysis and object measurement.
+- Instance and semantic image segmentation.
+- Computer vision model evaluation.
+- Deep learning-based image processing.
+
+## Conclusion
+
+This project demonstrates different computer vision approaches using pretrained deep learning models. It combines object detection, segmentation, object measurement, and model performance evaluation to understand and compare the capabilities of modern computer vision techniques.
